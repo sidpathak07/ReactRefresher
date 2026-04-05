@@ -1,6 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-
+const FunctionalComponent = () => <h1 className="test">React Functional Component</h1>;
+const nestedFunctionalComponent = () => (
+        <div className="nested">
+            <h1>React nested heading!</h1>
+            <FunctionalComponent />
+        </div>
+)
 const heading = React.createElement("h1",{id: "heading",xyz:"abc"},"Namaste React!")
 const heading2 = React.createElement("h2",{},"Namaste React Again!")
 const child = React.createElement("div",{id: "child"},[heading, heading2])
@@ -37,3 +43,7 @@ root.render(parent)
 
 // a normal js file is not a module by default. To make it a module, we need to add "type": "module" in package.json file.
 // In a module, we can use import and export statements to share code between files.
+
+// JSX is converted to React.createElement() calls by a tool called Babel.
+// For example, the JSX code <h1>Hello, React!</h1> would be converted to React.createElement("h1", null, "Hello, React!"). 
+// This allows us to write HTML-like syntax in our JavaScript code, which can be more intuitive and easier to read.
